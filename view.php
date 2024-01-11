@@ -21,7 +21,7 @@
 			<button type="submit" id="submit-button">Submit</button>
 		</form>
 		<section>
-			<p class="feedback">Your <span class="userWord">'word'</span> was <span class="outcome">'correct'</span>!</p>
+			<p class="feedback"><span class="userWord">'word'</span> was <span class="outcome">'correct'</span>!</p>
 			<div class="score">
 				<p class="total-score">Total Score: <strong>13</strong></p>
 				<div class="answers">
