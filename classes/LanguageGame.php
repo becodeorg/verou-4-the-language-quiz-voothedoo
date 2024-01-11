@@ -11,8 +11,17 @@ class LanguageGame
     // and are used mostly for more *static* types of data (a fixed set of translations in this case)
     foreach (Data::words() as $frenchTranslation => $englishTranslation) {
       // TODO: create instances of the Word class to be added to the words array
+      $this->words[] = new Word($frenchTranslation, $englishTranslation);
     }
   }
+
+  public function getRandomWord()
+  {
+    $randomKey = array_rand($this->words, 1);
+    $word =  $this->words[$randomKey];
+    return $word->getWord();
+  }
+
 
   public function run(): void
   {
@@ -27,3 +36,4 @@ class LanguageGame
 
   }
 }
+

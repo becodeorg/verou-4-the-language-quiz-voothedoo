@@ -6,29 +6,30 @@
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>WordQuiz</title>
+	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 	<!-- TODO: add a form for the user to play the game -->
 	<header>
-		<h1 class="title">WordQuiz</h1>
-		<h3 class="explanation">Translate the following word from French to English:</h3>
-		<p class="word-to-translate"><<< word here >>></p>
+		<h1 class="title">Word<span>Quiz</span></h1>
+		<h3 class="explanation">Translate the following word from <span>French</span> to <span>English</span></h3>
+		<p class="word-to-translate">“<?= $randomWord ?>”</p>
 	</header>
 	<main>
 		<form action="" method="POST">
-			<label for="solution">Your solution is: </label>
-			<input type="text" name="solution" id="solution">
-			<button type="submit" id="submit-button">Subbmit</button>
+			<input type="text" name="solution" id="solution" placeholder="">
+			<button type="submit" id="submit-button">Submit</button>
 		</form>
 		<section>
+			<p class="feedback">Your <span class="userWord">'word'</span> was <span class="outcome">'correct'</span>!</p>
 			<div class="score">
-				<p class="total-score">Total Score: <strong>'score here'</strong></p>
+				<p class="total-score">Total Score: <strong>13</strong></p>
 				<div class="answers">
-					<p>Correct answers: <strong>00</strong></p>
-					<p>Wrong answers: <strong>00</strong></p>
+					<p class="correct">Correct answers: <strong>18</strong></p>
+					<p class="wrong">Wrong answers: <strong>5</strong></p>
 				</div>
 			</div>
-			<button class="reset-button">Reset Game</button>
+			<button class="reset-button">Reset</button>
 		</section>
 	</main>
 </body>

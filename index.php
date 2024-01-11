@@ -20,4 +20,6 @@ require_once 'classes/Word.php';
 $game = new LanguageGame();
 $game->run();
 
+$randomWord = strtoupper($game->getRandomWord());
+
 require 'view.php';

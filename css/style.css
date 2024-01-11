@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  background-color: rgb(39, 39, 39);
+  color: #e3e3e3;
+}
+body header h1.title {
+  font-size: 4rem;
+  text-align: center;
+  margin: 1rem 0;
+  color: #e3e3e3;
+}
+body header h1.title span {
+  color: #f95959;
+}
+body header h3.explanation {
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 200;
+  margin-bottom: 1rem;
+}
+body header h3.explanation span {
+  color: #f95959;
+  font-style: italic;
+}
+body header p.word-to-translate {
+  font-size: 4rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 5rem;
+  color: #00bbf0;
+}
+body main form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+body main form input#solution {
+  height: 3rem;
+  width: 15rem;
+  margin-right: 1rem;
+  font-size: 2rem;
+  border: none;
+}
+body main form button#submit-button {
+  width: 7rem;
+  font-size: 1.3rem;
+  border: 1px solid #4ca8a8;
+  background-color: #347474;
+  color: #e3e3e3;
+}
+body main form button#submit-button:hover {
+  background-color: #4ca8a8;
+}
+body main section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body main section p.feedback {
+  margin-top: 5rem;
+  font-size: 1.2rem;
+}
+body main section div.score {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 5rem;
+}
+body main section div.score p.total-score {
+  font-size: 2rem;
+  color: #42b883;
+}
+body main section div.score p.total-score strong {
+  color: #78cfa8;
+}
+body main section div.score div.answers p.correct strong {
+  color: #42b883;
+}
+body main section div.score div.answers p.wrong strong {
+  color: #f95959;
+}
+body main section button.reset-button {
+  margin-top: 3rem;
+  width: 5rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  border: 1px solid #f77b7b;
+  background-color: #f95959;
+  color: #e3e3e3;
+}
+body main section button.reset-button:hover {
+  background-color: #f77b7b;
+}/*# sourceMappingURL=style.css.map */
