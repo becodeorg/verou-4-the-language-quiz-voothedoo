@@ -7,7 +7,7 @@ declare(strict_types = 1);
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
-
+session_start();
 // Load your classes
 require_once 'classes/Data.php';
 require_once 'classes/LanguageGame.php';
@@ -20,7 +20,15 @@ require_once 'classes/Word.php';
 $game = new LanguageGame();
 $game->run();
 
-$randomWord = strtoupper($game->getRandomWord());
+$wordPair = $game->getRandomWord();
+
+echo"<pre>";
+print_r($_SESSION);
+echo "<br>";
+
+echo "</pre>";
+
+
 
 
 
@@ -32,9 +40,8 @@ function sanitizeInput($input){
   return $input;
 }
 
-
 $errors = [];
-$feedBack = '';
+
 
 if ($_SERVER['REQUEST_METHOD']=='POST') {
   $solution = sanitizeInput($_POST['solution']);
@@ -46,14 +53,15 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
   }
 
   if (empty($errors)) {
-    $feedBack = " $solution was 'correct'";
-    echo $feedBack;
+    $feedBack = " <span class='userWord'>$solution</span> was <span class='outcome'></span>!";
+    $_SESSION['wordPair'] = $game->getRandomWord();
+    $_SESSION['randomWord'] = strtoupper($_SESSION['wordPair']['french']);
   } else {
     $feedBack = $errors['solution']; 
-    echo $feedBack;
   }
-
-
 }
+
+$randomWord = isset($_SESSION['randomWord']) ? $_SESSION['randomWord'] : strtoupper($wordPair['french']);
+
 
 require 'view.php';

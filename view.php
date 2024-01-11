@@ -13,7 +13,7 @@
 	<header>
 		<h1 class="title">Word<span>Quiz</span></h1>
 		<h3 class="explanation">Translate the following word from <span>French</span> to <span>English</span></h3>
-		<p class="word-to-translate">“<?= $randomWord ?>”</p>
+		<p class="word-to-translate">“<?= $randomWord ?? "" ?>”</p>
 	</header>
 	<main>
 		<form action="" method="POST">
@@ -21,12 +21,12 @@
 			<button type="submit" id="submit-button">Submit</button>
 		</form>
 		<section>
-			<p class="feedback"><span class="userWord">'word'</span> was <span class="outcome">'correct'</span>!</p>
-			<div class="score">
-				<p class="total-score">Total Score: <strong>13</strong></p>
+			<p class="feedback"><?= $feedBack ?? "" ?></p>
+			<div class="score"> 
+				<p class="total-score">Total Score: <strong></strong></p>
 				<div class="answers">
-					<p class="correct">Correct answers: <strong>18</strong></p>
-					<p class="wrong">Wrong answers: <strong>5</strong></p>
+					<p class="correct">Correct answers: <strong></strong></p>
+					<p class="wrong">Wrong answers: <strong></strong></p>
 				</div>
 			</div>
 			<button class="reset-button">Reset</button>

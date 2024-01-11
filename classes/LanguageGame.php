@@ -18,10 +18,10 @@ class LanguageGame
   public function getRandomWord()
   {
     $randomKey = array_rand($this->words, 1);
-    $word =  $this->words[$randomKey];
-    return $word->getWord();
+    $wordPair['french'] =  $this->words[$randomKey]->getFrenchWord();
+    $wordPair['english'] = $this->words[$randomKey]->getEnglishWord();
+    return $wordPair;
   }
-
 
   public function run(): void
   {
