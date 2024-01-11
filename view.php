@@ -11,7 +11,7 @@
 	<!-- TODO: add a form for the user to play the game -->
 	<header>
 		<h1 class="title">WordQuiz</h1>
-		<h3 class="explanation">Translate the following word from Romanian to English:</h3>
+		<h3 class="explanation">Translate the following word from French to English:</h3>
 		<p class="word-to-translate"><<< word here >>></p>
 	</header>
 	<main>

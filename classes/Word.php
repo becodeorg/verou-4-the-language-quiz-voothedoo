@@ -3,6 +3,14 @@
 class Word
 {
   // TODO: add word (FR) and answer (EN) - (via constructor or not? why?)
+  protected $word;
+  protected $answer;
+
+  public function __construct(string $word, string $answer)
+  {
+    $this->word = $word;
+    $this->answer= $answer;
+  }
 
   public function verify(string $answer): bool
   {
