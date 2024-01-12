@@ -1,7 +1,3 @@
-<?php
-echo $name;
-?>
-
 <!doctype html>
 <html lang="en">
 <head>

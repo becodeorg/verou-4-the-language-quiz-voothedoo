@@ -20,48 +20,4 @@ require_once 'classes/Word.php';
 $game = new LanguageGame();
 $game->run();
 
-$gameWordsArray = [
-  'paine' => 'bread',
-  'pitic de gradina' => 'garden gnome',
-  'ou' => 'egg',
-  'tufa' => 'bush',
-  'palarie' => 'hat',
-  'usa' => 'door',
-  'muzica' => 'music',
-  'biscuite' => 'cookie',
-];
-
-foreach($gameWordsArray as $key=>$value){
-  $words[] = new Word ($key, $value);
-}
-
-
-function sanitizeInput($input){
-  $input = trim($input);
-  $input = stripslashes($input);
-  $input = strtolower($input);
-  $input = filter_var($input, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-  return $input;
-}
-
-$errors = [];
-
-
-if ($_SERVER['REQUEST_METHOD']=='POST') {
-  $solution = sanitizeInput($_POST['solution']);
-
-  if(empty($solution)) {
-    $errors['solution']= "Solution field can't be empty";
-  } else if (!preg_match("/^[a-zA-Z ]+$/", $solution)) {
-    $errors['solution']= "Only letters are allowed";
-  }
-
-  if (empty($errors)) {
-    $feedBack = " <span class='userWord'>$solution</span> was <span class='outcome'>correct</span>!";
-  } else {
-    $feedBack = $errors['solution']; 
-  }
-}
-
-
 require 'view.php';
