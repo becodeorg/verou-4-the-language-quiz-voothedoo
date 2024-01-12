@@ -13,7 +13,7 @@
 	<header>
 		<h1 class="title">Word<span>Quiz</span></h1>
 		<h3 class="explanation">Translate the following word from <span>French</span> to <span>English</span></h3>
-		<p class="word-to-translate">“<?= $randomFrenchWord ?? "" ?>”</p>
+		<p class="word-to-translate">“<?= $_SESSION['word']->getFrenchWord() ?? "" ?>”</p>
 	</header>
 	<main>
 		<form action="" method="POST">
@@ -21,9 +21,9 @@
 			<button type="submit" id="submit-button">Submit</button>
 		</form>
 		<section>
-			<p class="feedback"><?= $feedBack ?? "" ?></p>
+			<p class="feedback"><?= $_SESSION['feedback'] ?? "" ?></p>
 			<div class="score"> 
-				<p class="total-score">Total Score: <strong></strong></p>
+				<p class="total-score">Total Score: <strong><?= $_SESSION['score']?? "0" ?></strong></p>
 				<div class="answers">
 					<p class="correct">Correct answers: <strong></strong></p>
 					<p class="wrong">Wrong answers: <strong></strong></p>
