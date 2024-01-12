@@ -1,6 +1,5 @@
 <?php
 
-
 class Word
 {
   // TODO: add word (FR) and answer (EN) - (via constructor or not? why?)
@@ -13,11 +12,7 @@ class Word
     $this->answer= $answer;
   }
 
-  public function getFrenchWord(){
-    return $this->word;
-  }
-
-  public function getEnglishWord(){
+  public function getRandomEnglishWord(){
     return $this->answer;
   }
 
@@ -29,5 +24,4 @@ class Word
     // Bonus (hard): can you allow answers with small typo's (max one character different)?
   }
 }
-
 

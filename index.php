@@ -20,16 +20,20 @@ require_once 'classes/Word.php';
 $game = new LanguageGame();
 $game->run();
 
-$wordPair = $game->getRandomWord();
+$gameWordsArray = [
+  'paine' => 'bread',
+  'pitic de gradina' => 'garden gnome',
+  'ou' => 'egg',
+  'tufa' => 'bush',
+  'palarie' => 'hat',
+  'usa' => 'door',
+  'muzica' => 'music',
+  'biscuite' => 'cookie',
+];
 
-echo"<pre>";
-print_r($_SESSION);
-echo "<br>";
-
-echo "</pre>";
-
-
-
+foreach($gameWordsArray as $key=>$value){
+  $words[] = new Word ($key, $value);
+}
 
 
 function sanitizeInput($input){
@@ -48,20 +52,16 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 
   if(empty($solution)) {
     $errors['solution']= "Solution field can't be empty";
-  } else if (!preg_match("/^[a-zA-Z]+$/", $solution)) {
+  } else if (!preg_match("/^[a-zA-Z ]+$/", $solution)) {
     $errors['solution']= "Only letters are allowed";
   }
 
   if (empty($errors)) {
-    $feedBack = " <span class='userWord'>$solution</span> was <span class='outcome'></span>!";
-    $_SESSION['wordPair'] = $game->getRandomWord();
-    $_SESSION['randomWord'] = strtoupper($_SESSION['wordPair']['french']);
+    $feedBack = " <span class='userWord'>$solution</span> was <span class='outcome'>correct</span>!";
   } else {
     $feedBack = $errors['solution']; 
   }
 }
-
-$randomWord = isset($_SESSION['randomWord']) ? $_SESSION['randomWord'] : strtoupper($wordPair['french']);
 
 
 require 'view.php';

@@ -1,3 +1,7 @@
+<?php
+echo $name;
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,7 +17,7 @@
 	<header>
 		<h1 class="title">Word<span>Quiz</span></h1>
 		<h3 class="explanation">Translate the following word from <span>French</span> to <span>English</span></h3>
-		<p class="word-to-translate">“<?= $randomWord ?? "" ?>”</p>
+		<p class="word-to-translate">“<?= $randomFrenchWord ?? "" ?>”</p>
 	</header>
 	<main>
 		<form action="" method="POST">
