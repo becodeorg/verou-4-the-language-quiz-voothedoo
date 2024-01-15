@@ -18,18 +18,20 @@
 	<main>
 		<form action="" method="POST">
 			<input type="text" name="solution" id="solution" placeholder="">
-			<button type="submit" id="submit-button">Submit</button>
+			<button type="submit" id="submit-button" value="submit" name="submitBtn">SUBMIT</button>
 		</form>
 		<section>
 			<p class="feedback"><?= $_SESSION['feedback'] ?? "" ?></p>
 			<div class="score"> 
-				<p class="total-score">Total Score: <strong><?= $_SESSION['score']?? "0" ?></strong></p>
+				<p class="total-score">Total Score: <strong><?= $_SESSION['totalScore']?? "0" ?></strong></p>
 				<div class="answers">
-					<p class="correct">Correct answers: <strong></strong></p>
-					<p class="wrong">Wrong answers: <strong></strong></p>
+					<p class="correct">Correct answers: <strong><?= $_SESSION['correct']?? "0" ?></strong></p>
+					<p class="wrong">Wrong answers: <strong><?= $_SESSION['wrong']?? "0" ?></strong></p>
 				</div>
 			</div>
+			<form action="" method="GET">
 			<button class="reset-button">Reset</button>
+			</form>
 		</section>
 	</main>
 </body>

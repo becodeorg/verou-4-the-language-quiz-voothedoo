@@ -25,17 +25,27 @@ class LanguageGame
     session_start();
     if($_SERVER['REQUEST_METHOD'] !== 'POST'){
       $_SESSION['word'] = $this->getRandomWord();
-      echo "<pre>";
-      print_r ($_SESSION['word']);
-      echo "</pre>";
+      $_SESSION['totalScore'] = 0;
+      $_SESSION['correct'] = 0;
+      $_SESSION['wrong'] = 0;
+      $_SESSION['feedback']= '';
+      // echo "<pre>";
+      // print_r ($_SESSION['word']);
+      // echo "</pre>";
     }
 
-    if ($_SERVER['REQUEST_METHOD']=='POST') {
-      $_SESSION['word']->verify($_POST['solution']);
+    if ($_SERVER['REQUEST_METHOD']=='POST' && $_POST['submitBtn'] === 'submit') {
+      if($_SESSION['word']->verify($_POST['solution']) == 'correct'){
+        $_SESSION['totalScore'] += 1;
+        $_SESSION['correct'] +=1;
+      } else if ($_SESSION['word']->verify($_POST['solution']) == 'wrong'){
+        $_SESSION['totalScore'] -= 1;
+        $_SESSION['wrong'] +=1;
+      }
       $_SESSION['word'] = $this->getRandomWord();
-      echo "<pre>";
-      print_r ($_SESSION['word']);
-      echo "</pre>";
+      // echo "<pre>";
+      // print_r ($_SESSION['word']);
+      // echo "</pre>";
     }
   }
 }

@@ -42,13 +42,17 @@ class Word
 
     if (empty($errors) && $userWord === $this->englishTranslation) {
       $feedBack = " <span class='userWord'>". strtoupper($userWord) . "</span> was <span class='outcome'>correct</span>! :)";
+      $_SESSION['feedback']=$feedBack;
+      return 'correct';
 
     } else if (empty($errors)&& $userWord !== $this->englishTranslation) {
       $feedBack = " <span class='userWord'>". strtoupper($userWord) . "</span> was <span class='outcome'>NOT correct</span>! :(";
+      $_SESSION['feedback']=$feedBack;
+      return 'wrong';
     } else {
       $feedBack = $errors['solution'];
+      $_SESSION['feedback']=$feedBack;
     }
-    $_SESSION['feedback']=$feedBack;
 
   }
 }
